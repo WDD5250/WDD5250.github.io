@@ -57,12 +57,15 @@
       "m0n0cer0s": "m0n0cer0s.html"
     };
 
-    if (redirects[code]) {
-      window.location.href = redirects[code];
-    } else {
-      document.getElementById('message').textContent = "❌ Invalid code! Try again.";
-    }
-  }
+if (code.toLowerCase() === "rickroll") {
+  window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+} else if (code === "DONOTENTER") {
+  window.location.href = "https://www.anothersite.com";
+} else if (code === "m0n0cer0s") {
+  window.location.href = "m0n0cer0s.html";
+} else
+  document.getElementById('message').textContent = "❌ Invalid code!";
+}
 
     // Let users press Enter instead of clicking
     document.getElementById('code').addEventListener("keyup", function(event) {
