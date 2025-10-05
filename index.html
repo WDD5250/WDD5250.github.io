@@ -48,24 +48,37 @@
   <button onclick="checkCode()">Go</button>
   <p id="message"></p>
 
-<script>
-  function checkCode() {
-    const code = document.getElementById('code').value.trim().toLowerCase();
-    const redirects = {
-      "rickroll": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "donotenter": "https://www.bluey.tv",
-      "m0n0cer0s": "m0n0cer0s.html"
-    };
+<!-- paste into your index.html (script can be at the bottom) -->
+<input id="code" placeholder="Enter code">
+<button id="go">Go</button>
+<p id="message"></p>
 
-if (code.toLowerCase() === "rickroll") {
-  window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-} else if (code === "DONOTENTER") {
-  window.location.href = "https://www.bluey.tv";
-} else if (code === "m0n0cer0s") {
-  window.location.href = "m0n0cer0s.html";
-} else
-  document.getElementById('message').textContent = "❌ Invalid code!";
-}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('code');
+  const btn = document.getElementById('go');
+  const msg = document.getElementById('message');
+
+  const redirects = {
+    "rickroll": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "DONOTENTER": "https://www.bluey.tv",
+    "m0n0cer0s": "m0n0cer0s.html"
+  };
+
+  function checkCode() {
+    const code = input.value.trim(); // <-- no toLowerCase(), keep exact case
+    if (redirects.hasOwnProperty(code)) {
+      window.location.href = redirects[code];
+    } else {
+      msg.textContent = "❌ Invalid code!";
+    }
+  }
+
+  btn.addEventListener('click', checkCode);
+  input.addEventListener('keyup', e => { if (e.key === 'Enter') checkCode(); });
+});
+</script>
+
 
     // Let users press Enter instead of clicking
     document.getElementById('code').addEventListener("keyup", function(event) {
