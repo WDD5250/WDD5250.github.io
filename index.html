@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>WhoopDeDooz 5250's Site</title>
-  <meta charset="UTF-8">
-</head>
-<body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
-  <h1>WhoopDeDooz 5250's Site</h1>
-</body>
-  <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Secret Code Entry</title>
   <style>
     body {
       font-family: monospace;
@@ -42,51 +33,40 @@
     }
   </style>
 </head>
+
 <body>
-  <h1>Enter Code:</h1>
+  <h1>WhoopDeDooz 5250's Site</h1>
+  <h2>Enter Code:</h2>
   <input id="code" type="text" placeholder="Type code here">
-  <button onclick="checkCode()">Go</button>
+  <button id="go">Go</button>
   <p id="message"></p>
 
-<!-- paste into your index.html (script can be at the bottom) -->
-<input id="code" placeholder="Enter code">
-<button id="go">Go</button>
-<p id="message"></p>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('code');
+    const btn = document.getElementById('go');
+    const msg = document.getElementById('message');
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('code');
-  const btn = document.getElementById('go');
-  const msg = document.getElementById('message');
+    const redirects = {
+      "rickroll": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "DONOTENTER": "https://www.bluey.tv",
+      "m0n0cer0s": "m0n0cer0s.html"
+    };
 
-  const redirects = {
-    "rickroll": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "DONOTENTER": "https://www.bluey.tv",
-    "m0n0cer0s": "m0n0cer0s.html"
-  };
-
-  function checkCode() {
-    const code = input.value.trim(); // <-- no toLowerCase(), keep exact case
-    if (redirects.hasOwnProperty(code)) {
-      window.location.href = redirects[code];
-    } else {
-      msg.textContent = "❌ Invalid code!";
-    }
-  }
-
-  btn.addEventListener('click', checkCode);
-  input.addEventListener('keyup', e => { if (e.key === 'Enter') checkCode(); });
-});
-</script>
-
-
-    // Let users press Enter instead of clicking
-    document.getElementById('code').addEventListener("keyup", function(event) {
-      if (event.key === "Enter") {
-        checkCode();
+    function checkCode() {
+      const code = input.value.trim(); // keep exact case
+      if (redirects.hasOwnProperty(code)) {
+        window.location.href = redirects[code];
+      } else {
+        msg.textContent = "❌ Invalid code!";
       }
+    }
+
+    btn.addEventListener('click', checkCode);
+    input.addEventListener('keyup', e => {
+      if (e.key === 'Enter') checkCode();
     });
+  });
   </script>
 </body>
-</html>
 </html>
