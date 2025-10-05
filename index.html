@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Joke Site</title>
+  <title>WhoopDeDooz 5250's Site</title>
   <meta charset="UTF-8">
 </head>
 <body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
-  <h1>Welcome to the Joke Code Site!</h1>
-  <p>Enter your secret code in your imagination...</p>
+  <h1>WhoopDeDooz 5250's Site</h1>
+  <p>Enter a code</p>
   <p>😎</p>
 </body>
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Code Entry</title>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      background-color: #111;
+      color: #0f0;
+      padding-top: 100px;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #0f0;
+      background: black;
+      color: #0f0;
+      width: 200px;
+      text-align: center;
+    }
+    button {
+      padding: 10px;
+      background: #0f0;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    button:hover {
+      background: #6f6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Your Secret Code</h1>
+  <input id="code" type="text" placeholder="Type code here">
+  <button onclick="checkCode()">Go</button>
+  <p id="message"></p>
+
+  <script>
+    function checkCode() {
+      const code = document.getElementById('code').value.trim().toLowerCase();
+      const redirects = {
+        "sunrise42": "secret.html",
+        "moonlight7": "https://example.com",
+        "banana": "funny.html"
+      };
+
+      if (redirects[code]) {
+        window.location.href = redirects[code];
+      } else {
+        document.getElementById('message').textContent = "❌ Invalid code! Try again.";
+      }
+    }
+
+    // Let users press Enter instead of clicking
+    document.getElementById('code').addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        checkCode();
+      }
+    });
+  </script>
+</body>
+</html>
 </html>
