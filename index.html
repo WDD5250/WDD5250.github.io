@@ -6,8 +6,6 @@
 </head>
 <body style="font-family: sans-serif; text-align: center; margin-top: 100px;">
   <h1>WhoopDeDooz 5250's Site</h1>
-  <p>Enter a code</p>
-  <p>😎</p>
 </body>
   <!DOCTYPE html>
 <html>
@@ -45,7 +43,7 @@
   </style>
 </head>
 <body>
-  <h1>Enter Your Secret Code</h1>
+  <h1>Enter Code:</h1>
   <input id="code" type="text" placeholder="Type code here">
   <button onclick="checkCode()">Go</button>
   <p id="message"></p>
@@ -54,9 +52,7 @@
     function checkCode() {
       const code = document.getElementById('code').value.trim().toLowerCase();
       const redirects = {
-        "sunrise42": "secret.html",
-        "moonlight7": "https://example.com",
-        "banana": "funny.html"
+        "DONOTENTER": "https://www.bluey.tv/"
       };
 
       if (redirects[code]) {
