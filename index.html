@@ -48,19 +48,19 @@
   <button onclick="checkCode()">Go</button>
   <p id="message"></p>
 
-  <script>
-    function checkCode() {
-      const code = document.getElementById('code').value.trim().toLowerCase();
-      const redirects = {
-        "DONOTENTER": "bluey.tv"
-      };
+<script>
+  function checkCode() {
+    const code = document.getElementById('code').value.trim().toLowerCase();
+    const redirects = {
+      "donotenter": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    };
 
-      if (redirects[code]) {
-        window.location.href = redirects[code];
-      } else {
-        document.getElementById('message').textContent = "❌ Invalid code! Try again.";
-      }
+    if (redirects[code]) {
+      window.location.href = redirects[code];
+    } else {
+      document.getElementById('message').textContent = "❌ Invalid code! Try again.";
     }
+  }
 
     // Let users press Enter instead of clicking
     document.getElementById('code').addEventListener("keyup", function(event) {
